@@ -4,16 +4,16 @@ import (
 	"GoHexArc/internal/ports"
 )
 
-// the Adapter struct concains a arith
-// which is a Arithmetic Interface
+// The Adapter struct contains a arith and a db
+// which is a Arithmetic Interface, and a Db interface
 type Adapter struct {
 	db    ports.DbPort
 	arith ports.ArithmeticPort
 }
 
-// kinda like a constructor so we pass in a
-// arithmetic interface, return a reference to a new
-// adapter with the injected interface (arith: arith)
+// NewAdapter is kinda like a constructor, so we pass in the Arithmetic interface, and the Db interface
+// then we return a reference to a new adapter reference with the injected interfaces
+// db ports.DbPort, arith ports.ArithmeticPort
 func NewAdapter(db ports.DbPort, arith ports.ArithmeticPort) *Adapter {
 	return &Adapter{db: db, arith: arith}
 }
